@@ -15,6 +15,11 @@ int main(void)
 	for (i = 0; i < 10; i++)
 	{
 		printf("%d", i);
+
+		if ((i + 1) < 10)
+		{
+			printf(",");
+		}
 	}
 
 	return (0);

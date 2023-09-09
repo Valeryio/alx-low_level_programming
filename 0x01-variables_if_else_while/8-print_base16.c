@@ -12,16 +12,15 @@ int main(void)
 
 	int i = 97;
 
-	while (i < 123)
+	for (i = 48; i < 58; i++)
 	{
-		if ((i == 101) || (i == 113))
-		{
-			continue;
-		}
-
 		putchar(i);
-		i++;
 	}
+	for (i = 97; i < 103; i++)
+	{
+		putchar(i);
+	}
+
 	putchar(10);
 
 	return (0);
