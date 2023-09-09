@@ -19,10 +19,21 @@ int main(void)
 	n = rand() - RAND_MAX / 2;
 	last = n;
 
-	/*Determination of the las t number*/
-	while ((last % 10) >  10)
+	/*Determination of the last number*/
+
+	if (n > 0)
 	{
-		last = last % 10;
+		while ((last % 10) >  10)
+		{
+			last = last % 10;
+		}
+	}
+	else
+	{
+		while ((last % (-10)) > (-10))
+		{
+			last = last % (-10);
+		}
 	}
 
 	printf("Last digit of %d is %d", n, last);
@@ -33,7 +44,7 @@ int main(void)
 	}
 	else
 	{
-		printf("and is less than 6 and not 0\n");
+		printf(" and is less than 6 and not 0\n");
 	}
 
 
