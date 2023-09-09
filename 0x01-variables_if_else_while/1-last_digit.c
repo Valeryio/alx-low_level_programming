@@ -23,17 +23,19 @@ int main(void)
 
 	if (n > 0)
 	{
-		while ((last % 10) >  10)
+		do
 		{
 			last = last % 10;
 		}
+		while ((last % 10) >  10);
 	}
 	else
 	{
-		while ((last % (-10)) > (-10))
+		do
 		{
 			last = last % (-10);
 		}
+		while ((last % (-10)) > (-10));
 	}
 
 	printf("Last digit of %d is %d", n, last);
