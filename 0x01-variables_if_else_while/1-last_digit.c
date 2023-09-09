@@ -20,9 +20,10 @@ int main(void)
 	last = n;
 
 	/*Determination of the las t number*/
-	while ((last > 10) || (-last > 10))
+	while (((n % 10) >  10))
 	{
 		last = last % 10;
+		
 	}
 
 	printf("Last digit of %d is %d", n, last);
