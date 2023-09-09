@@ -20,7 +20,7 @@ int main(void)
 	last = n;
 
 	/*Determination of the las t number*/
-	while (last > 10)
+	while ((last > 10) || (-last > 10))
 	{
 		last = last % 10;
 	}
@@ -29,7 +29,7 @@ int main(void)
 
 	if (last > 5)
 	{
-		printf("and is greater than 5");
+		printf(" and is greater than 5");
 	}
 	else
 	{
