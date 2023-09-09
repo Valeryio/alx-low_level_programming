@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	char chain[] = "Programming is like building a multilingual puzzle\n";
+	char chain[] = "\"Programming is like building a multilingual puzzle";
 
 	puts(chain);
 
