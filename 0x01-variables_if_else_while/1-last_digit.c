@@ -29,7 +29,7 @@ int main(void)
 
 	if (last > 5)
 	{
-		printf(" and is greater than 5");
+		printf(" and is greater than 5\n");
 	}
 	else
 	{
