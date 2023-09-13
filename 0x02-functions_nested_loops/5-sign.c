@@ -4,7 +4,7 @@
  * print_sign  - print the sign of a number
  * @c: the character checked
  *
- * Description: This function check the sign 
+ * Description: This function check the sign
  * of a number
  *
  * Return: On positive sucess 1
