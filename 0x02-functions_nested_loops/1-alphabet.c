@@ -13,7 +13,7 @@ void print_alphabet(void)
 {
 	char i = 'a', NL = '\n';
 
-	while (i < 'z')
+	while (i <= 'z')
 	{
 		_putchar(i);
 		i++;
