@@ -14,7 +14,7 @@
 int main(void)
 {
 
-	char *n = "_putchar\n";
+	char *n = "_putchar \n";
 
 	write(1, n, sizeof(n));
 
