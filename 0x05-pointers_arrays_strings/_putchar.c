@@ -11,5 +11,5 @@
 
 void _putchar(char *c)
 {
-	write(1, c, sizeof(char));
+	write(1, c, sizeof(c));
 }
