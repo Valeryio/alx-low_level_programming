@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * main - updating value
+ * reset_to_98 - updating value
  * @n: a pointer
  *
- * Description: This function takes modify some values.
- *
+ * Description: This function takes
+ * modify some values.
  * Return: Nothing
  */
 
