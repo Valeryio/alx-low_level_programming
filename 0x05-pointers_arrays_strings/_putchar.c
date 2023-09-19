@@ -9,7 +9,7 @@
  * Return: Nothing
  */
 
-void _putchar(char *c)
+void _putchar(char c)
 {
-	write(1, c, sizeof(c));
+	write(1, &c, sizeof(c));
 }
