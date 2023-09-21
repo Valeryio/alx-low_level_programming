@@ -18,5 +18,5 @@ int _strcmp(char *s1, char *s2)
 	firstLetter_1 = (int) s1[0];
 	firstLetter_2 = (int) s2[0];
 
-	return (firstLetter_2 - firstLetter_1);
+	return (firstLetter_1 - firstLetter_2);
 }
