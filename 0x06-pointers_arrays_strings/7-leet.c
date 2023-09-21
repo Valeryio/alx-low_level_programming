@@ -5,7 +5,7 @@
  * @s: (string) the string
  *
  * Description: This function change all
- * letters of a string to rot13 code
+ * letters of a string to 1337 code
  * Return: a pointer
  */
 
