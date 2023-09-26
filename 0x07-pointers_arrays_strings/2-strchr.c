@@ -6,17 +6,15 @@
  * @s: (string), the string we want to use
  * @c: (char), the char we want to use
  *
- * Description: This funcitno locate a character in
- * a sring.
- * Return: A pointer to the first occurence of the
- * character c in the string s, or NULL, if the
- * character is not found.
- */
+ * Description: This function locate a character in
+ * a string.
+ * Return: A pointer to the first occurence
+*/
 
 
 char *_strchr(char *s, char c)
 {
-	unsigned int i = 0;
+	unsigned int i;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -27,5 +25,8 @@ char *_strchr(char *s, char c)
 		}
 	}
 
-	return (NULL);
+	if (s[i] == '\0')
+	{
+		return (NULL);
+	}
 }
