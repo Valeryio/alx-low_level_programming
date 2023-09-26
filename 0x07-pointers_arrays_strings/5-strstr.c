@@ -15,7 +15,7 @@
 char *_strstr(char *haystack, char *needle)
 {
 	int i = 0, j = 0, k = 0, isEqual = 0, length = 0;
-	char substring[50] = "";
+	char substring[100] = "";
 
 	for (i = 0; haystack[i] != '\0'; i++)
 	{
