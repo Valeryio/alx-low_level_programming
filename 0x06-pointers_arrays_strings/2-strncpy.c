@@ -19,20 +19,21 @@ char *_strncpy(char *dest, char *src, int n)
 		dest[i] = src[i];
 	}
 
-	while (i < 99)
+	if (src[i] == '\0')
 	{
-		if (i > 89 && i < 97)
+		while (i < 99)
 		{
-			dest[i] = '*';
+			if (i > 89 && i < 97)
+			{
+				dest[i] = '*';
+			}
+			else
+			{
+				dest[i] = 0;
+			}
+			i++;
 		}
-		else
-		{
-			dest[i] = 0;
-		}
-		i++;
+		dest[i] = '\0';
 	}
-
-	dest[i] = '\0';
-
 	return (dest);
 }
