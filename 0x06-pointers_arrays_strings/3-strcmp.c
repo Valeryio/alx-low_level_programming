@@ -13,10 +13,20 @@
 
 int _strcmp(char *s1, char *s2)
 {
-	int firstLetter_1 = 0, firstLetter_2 = 0;
+	int i;
 
-	firstLetter_1 = (int) s1[0];
-	firstLetter_2 = (int) s2[0];
+	for (i = 0; s1[i] != '\0' && s2[i] != '\0'; i++)
+	{
+		if (s1[i] != s2[i])
+		{
+			return (s1[i] - s2[i]);
+		}
+	}
 
-	return (firstLetter_1 - firstLetter_2);
+	if (s1[i] == '\0' || s2[i] == '\0')
+	{
+		return (s1[i - 1] - s2[i - 1]);
+	}
+
+	return (0);
 }
