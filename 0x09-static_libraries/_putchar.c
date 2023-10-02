@@ -8,7 +8,7 @@
  * standard output a char.
  */
 
-void _putchar(char s)
+int _putchar(char s)
 {
-	write(1, &s, sizeof(s));
+	return (write(1, &s, sizeof(s)));
 }
