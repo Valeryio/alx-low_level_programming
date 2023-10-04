@@ -1,34 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int **alloc_grid(int, int);
-
-/**
- *  * print_grid - prints a grid of integers
- *   * @grid: the address of the two dimensional grid
- *    * @width: width of the grid
- *     * @height: height of the grid
- *      *
- *       * Return: Nothing.
- *        */
-void print_grid(int **grid, int width, int height)
-{
-		int w;
-			int h;
-
-				h = 0;
-					while (h < height)
-							{
-										w = 0;
-												while (w < width)
-															{
-																			printf("%d ", grid[h][w]);
-																						w++;
-																								}
-														printf("\n");
-																h++;
-																	}
-}
+char *str_concat(char *, char *);
 
 /**
  *  * main - check the code .
@@ -37,19 +10,34 @@ void print_grid(int **grid, int width, int height)
  *     */
 int main(void)
 {
-		int **grid;
-			int h;
-				int w;
+		char *s;
 
-					h = 20;
-						w = 20;
-							grid = alloc_grid(h, w);
-								if (grid == NULL)
-										{
-													return (1);
-														}
-									print_grid(grid, h, w);
-										printf("\n");
-											free(grid);
-												return (0);
+			s = str_concat("Hello", NULL);
+				if (s == NULL)
+						{
+									printf("failed\n");
+											return (1);
+												}
+					printf("%s\n", s);
+						free(s);
+
+						    s = str_concat(NULL, "Hello");
+						    	if (s == NULL)
+									{
+												printf("failed\n");
+														return (1);
+															}
+								printf("%s\n", s);
+									free(s);
+
+									    s = str_concat(NULL, NULL);
+									    	if (s == NULL)
+												{
+															printf("failed\n");
+																	return (1);
+																		}
+											printf("%s\n", s);
+												free(s);
+
+													return (0);
 }

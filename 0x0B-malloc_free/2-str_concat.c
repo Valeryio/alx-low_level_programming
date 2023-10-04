@@ -33,6 +33,7 @@ char *str_concat(char *s1, char *s2)
 		i++;
 	}
 
+	i++;
 	length = 0;
 
 	while ((s2[length] != '\0') && s2 != NULL)
