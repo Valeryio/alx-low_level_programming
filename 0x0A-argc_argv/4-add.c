@@ -16,9 +16,9 @@ int main(__attribute__((unused)) int argc, char *argv[])
 {
 	int i, sum = 0;
 
-	for (i = 0; i < argc; i++)
+	for (i = 1; i < argc; i++)
 	{
-		if ((atoi(argv[i]) < 30) && (atoi(argv[i]) > 39))
+		if (argv[i][0] < '0' || argv[i][0] > '9')
 		{
 			printf("Error\n");
 			return (1);
