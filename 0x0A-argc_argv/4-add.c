@@ -14,18 +14,20 @@
 
 int main(__attribute__((unused)) int argc, char *argv[])
 {
-	int a, b;
+	int i, sum = 0;
 
-	if (!argv[1] || !argv[2])
+	for (i = 0; i < argc; i++)
 	{
-		printf("Error\n");
-		return (1);
+		if ((atoi(argv[i]) < 30) && (atoi(argv[i]) > 39))
+		{
+			printf("Error\n");
+			return (1);
+		}
+
+		sum += atoi(argv[i]);
 	}
 
-	a = atoi(argv[1]);
-	b = atoi(argv[2]);
-
-	printf("%d\n", a + b);
+	printf("%d\n", sum);
 
 	return (0);
 }
