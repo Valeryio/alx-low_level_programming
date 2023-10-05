@@ -4,7 +4,7 @@
 /**
  * main - print the sum of two number
  * @argc: (int), the lenght of argv
- * @argc: (string), an array of strings
+ * @argv: (string), an array of strings
  *
  * Description: This function multiplies two
  * numbers.
@@ -12,18 +12,18 @@
  */
 
 
-int main(int argc, int *argv[])
+int main(__attribute__((unused)) int argc, char *argv[])
 {
 	int a, b;
 
-	if (argv[2] == NULL)
+	if (!argv[1] || !argv[2])
 	{
 		printf("Error\n");
 		return (1);
 	}
 
-	a = strtol(argv[1]);
-	b = strtol(argv[2]);
+	a = atoi(argv[1]);
+	b = atoi(argv[2]);
 
 	printf("%d\n", a * b);
 
