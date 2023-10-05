@@ -10,7 +10,7 @@
  * Return: 0
  */
 
-int main(int argc, char *argv[])
+int main(char *argv[])
 {
 	int i, length = 0;
 
