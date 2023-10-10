@@ -2,7 +2,7 @@
 #define __DOG__
 
 #include <stdio.h>
-#include <stdlib>
+#include <stdlib.h>
 
 /**
  * struct dog - represent a doc
