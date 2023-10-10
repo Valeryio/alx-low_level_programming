@@ -34,10 +34,21 @@ int _strlen(char *str)
 
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
+	if (d == NULL)
+		exit (98);
+
 	d->age = age;
 
 	d->name = malloc(_strlen(name) + 1);
+
+	if (d->name == NULL)
+		exit (98);
+
+
 	d->owner = malloc(_strlen(owner) + 1);
+
+	if (d->owner == NULL)
+		exit (98);
 
 	strcpy(d->name, name);
 	strcpy(d->owner, owner);
