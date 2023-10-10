@@ -41,7 +41,7 @@ int main(void)
 {
 		int *a;
 
-			a = array_range(1024, 2048);
+			a = array_range(-2048, -1024);
 				if (a == NULL)
 						{
 									printf("Failed\n");
