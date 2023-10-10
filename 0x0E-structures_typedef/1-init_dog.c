@@ -2,6 +2,26 @@
 #include <string.h>
 
 /**
+ * _strlen - find the length of a string
+ * @str: (string)
+ *
+ * Description: This function return the length
+ * of a string
+ * Return: An integer
+ */
+
+int _strlen(char *str)
+{
+
+	if (*str == '\0')
+		return (0);
+
+	str++;
+	return (1 + _strlen(str));
+}
+
+
+/**
  * init_dog - initialise a structure
  * @d: (object), the object used
  * @name: (string), the name of the object
@@ -16,8 +36,8 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	d->age = age;
 
-	d->name = malloc(strlen(name) + 1);
-	d->owner = malloc(strlen(owner) + 1);
+	d->name = malloc(_strlen(name) + 1);
+	d->owner = malloc(_strlen(owner) + 1);
 
 	strcpy(d->name, name);
 	strcpy(d->owner, owner);
