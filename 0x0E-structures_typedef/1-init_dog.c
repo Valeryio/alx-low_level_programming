@@ -61,12 +61,12 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 
 	d->age = age;
 
-	d->name = malloc(_strlen(name) + 1);
+	d->name = malloc(_strlen(name));
 	if (d->name == NULL)
 		exit(98);
 
 
-	d->owner = malloc(_strlen(owner) + 1);
+	d->owner = malloc(_strlen(owner));
 	if (d->owner == NULL)
 		exit(98);
 
