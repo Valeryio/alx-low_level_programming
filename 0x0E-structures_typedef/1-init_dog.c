@@ -9,7 +9,7 @@
  * of a string
  * Return: An integer
  */
-
+/*
 int _strlen(char *str)
 {
 
@@ -19,7 +19,7 @@ int _strlen(char *str)
 	str++;
 	return (1 + _strlen(str));
 }
-
+*/
 /**
  * _strcpy - copy a string
  * @source: (string)
@@ -29,7 +29,7 @@ int _strlen(char *str)
  * destination
  * Return: A pointer on success or NULL
  */
-
+/*
 char *_strcpy(char *dest, char *source)
 {
 	int i;
@@ -44,7 +44,7 @@ char *_strcpy(char *dest, char *source)
 
 	return (dest);
 }
-
+*/
 /**
  * init_dog - initialise a structure
  * @d: (object), the object used
