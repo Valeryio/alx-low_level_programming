@@ -3,46 +3,44 @@
 
 
 /**
- *  * _strlen - find the length of a string
- *   * @str: (string)
- *    *
- *     * Description: This function return the length
- *      * of a string
- *       * Return: An integer
- *        */
+ * _strlen - find the length of a string
+ * @str: (string)
+ *
+ * Description: This function return the length
+ * of a string
+ * Return: An integer
+ */
 
 int _strlen(char *str)
 {
+	if (*str == '\0')
+		return (0);
 
-	        if (*str == '\0')
-			                return (0);
-
-		        str++;
-			        return (1 + _strlen(str));
+	str++;
+	return (1 + _strlen(str));
 }
 
 /**
- *  * _strcpy - copy a string
- *   * @source: (string)
- *    * @dest: (string)
- *     *
- *      * Description: This function copy value from source to
- *       * destination
- ** Return: A pointer on success or NULL
- **/
+ * _strcpy - copy a string
+ * @source: (string)
+ * @dest: (string)
+ *
+ * Description: This function copy value from source to
+ * destination
+ * Return: A pointer on success or NULL
+ */
 
 char *_strcpy(char *dest, char *source)
 {
-        int i;
+	int i;
 
 	if (source == NULL)
-               return (NULL);
+		return (NULL);
 
 	for (i = 0; source[i] != '\0'; i++)
 		dest[i] = source[i];
 
-
-        return (dest);
+	return (dest);
 }
 
 
