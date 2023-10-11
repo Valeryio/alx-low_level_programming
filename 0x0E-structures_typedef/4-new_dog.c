@@ -1,5 +1,53 @@
 #include "dog.h"
 
+
+
+/**
+ *  * _strlen - find the length of a string
+ *   * @str: (string)
+ *    *
+ *     * Description: This function return the length
+ *      * of a string
+ *       * Return: An integer
+ *        */
+
+int _strlen(char *str)
+{
+
+	        if (*str == '\0')
+			                return (0);
+
+		        str++;
+			        return (1 + _strlen(str));
+}
+
+/**
+ *  * _strcpy - copy a string
+ *   * @source: (string)
+ *    * @dest: (string)
+ *     *
+ *      * Description: This function copy value from source to
+ *       * destination
+ ** Return: A pointer on success or NULL
+ **/
+
+char *_strcpy(char *dest, char *source)
+{
+        int i;
+
+	if (source == NULL)
+               return (NULL);
+
+	for (i = 0; source[i] != '\0'; i++)
+		dest[i] = source[i];
+
+
+        return (dest);
+}
+
+
+
+
 /**
  * new_dog - create a new dog
  * @name: (string), the name of the new dog
@@ -19,9 +67,24 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (!my_dog)
 		return (NULL);
 
-	my_dog->name = name;
+
+	my_dog->name = malloc(sizeof(_strlen(name)) + 1);
+
+	if (!my_dog->name)
+		return (NULL);
+
+	_strcpy(my_dog->name, name);
+
+
 	my_dog->age = age;
-	my_dog->owner = owner;
+
+
+	my_dog->owner = malloc(sizeof(_strlen(owner)) + 1);
+
+	if (!my_dog->owner)
+		return (NULL);
+
+	_strcpy(my_dog->owner, owner);
 
 	return (my_dog);
 }
