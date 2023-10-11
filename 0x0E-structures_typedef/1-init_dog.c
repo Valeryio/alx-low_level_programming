@@ -9,7 +9,7 @@
  * of a string
  * Return: An integer
  */
-/*
+
 int _strlen(char *str)
 {
 
@@ -19,7 +19,7 @@ int _strlen(char *str)
 	str++;
 	return (1 + _strlen(str));
 }
-*/
+
 /**
  * _strcpy - copy a string
  * @source: (string)
@@ -29,7 +29,7 @@ int _strlen(char *str)
  * destination
  * Return: A pointer on success or NULL
  */
-/*
+
 char *_strcpy(char *dest, char *source)
 {
 	int i;
@@ -44,7 +44,7 @@ char *_strcpy(char *dest, char *source)
 
 	return (dest);
 }
-*/
+
 /**
  * init_dog - initialise a structure
  * @d: (object), the object used
@@ -62,7 +62,7 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 		exit(98);
 
 	d->age = age;
-/*
+
 	d->name = malloc(_strlen(name) + 1);
 	if (d->name == NULL)
 		exit(98);
@@ -74,9 +74,4 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 
 	_strcpy(d->name, name);
 	_strcpy(d->owner, owner);
-*/
-
-	d->name = name;
-	d->owner = owner;
-
 }
