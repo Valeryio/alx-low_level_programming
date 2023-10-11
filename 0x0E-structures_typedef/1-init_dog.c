@@ -20,6 +20,31 @@ int _strlen(char *str)
 	return (1 + _strlen(str));
 }
 
+/**
+ * _strcpy - copy a string
+ * @source: (string)
+ * @dest: (string)
+ *
+ * Description: This function copy value from source to
+ * destination
+ * Return: A pointer on success or NULL
+ */
+
+char *_strcpy(char *dest, char *source)
+{
+	int i;
+
+	if (source == NULL)
+		return (NULL);
+
+	for (i = 0; source[i] != '\0'; i++)
+		dest[i] = source[i];
+
+	dest[i] = '\0';
+
+	printf("Chargeons la chaine : %s\n", dest);
+	return (dest);
+}
 
 /**
  * init_dog - initialise a structure
@@ -40,16 +65,14 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 	d->age = age;
 
 	d->name = malloc(_strlen(name) + 1);
-
 	if (d->name == NULL)
 		exit (98);
 
 
 	d->owner = malloc(_strlen(owner) + 1);
-
 	if (d->owner == NULL)
-		exit (98);
+	exit (98);
 
-	strcpy(d->name, name);
-	strcpy(d->owner, owner);
+	_strcpy(d->name, name);
+	_strcpy(d->owner, owner);
 }
