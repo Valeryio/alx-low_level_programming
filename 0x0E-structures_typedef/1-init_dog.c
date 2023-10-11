@@ -42,7 +42,6 @@ char *_strcpy(char *dest, char *source)
 
 	dest[i] = '\0';
 
-	printf("Chargeons la chaine : %s\n", dest);
 	return (dest);
 }
 
@@ -60,19 +59,24 @@ char *_strcpy(char *dest, char *source)
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	if (d == NULL)
-		exit (98);
+		exit(98);
 
 	d->age = age;
-
+/*
 	d->name = malloc(_strlen(name) + 1);
 	if (d->name == NULL)
-		exit (98);
+		exit(98);
 
 
 	d->owner = malloc(_strlen(owner) + 1);
 	if (d->owner == NULL)
-	exit (98);
+		exit(98);
 
 	_strcpy(d->name, name);
 	_strcpy(d->owner, owner);
+*/
+
+	d->name = name;
+	d->owner = owner;
+
 }
