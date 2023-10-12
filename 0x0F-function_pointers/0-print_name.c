@@ -1,4 +1,4 @@
-#include "main.h"
+#include "function_pointers.h"
 
 /**
  * printer - print a string
@@ -11,8 +11,11 @@
 void printer(char *s)
 {
 	int i;
-	for (i = 0; s[i] != '\0'; i++) _putchar(s[i]);
+
+	for (i = 0; s[i] != '\0'; i++)
+		_putchar(s[i]);
 }
+
 
 
 /**
@@ -23,6 +26,7 @@ void printer(char *s)
  * Description: This function is used to
  * print a name
  */
+
 
 void print_name(char *name, void (*f)(char *));
 {
