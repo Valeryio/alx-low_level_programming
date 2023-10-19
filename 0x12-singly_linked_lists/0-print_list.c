@@ -1,0 +1,31 @@
+#include "lists.h"
+
+/**
+ * print_list - This function prints a list
+ * @h: (object)
+ *
+ * Description: This function prints all the
+ * elements of a list_t.
+ * Return: An size_t element
+ */
+
+size_t print_list(const list_t *h)
+{
+	size_t i = 0;
+	while (h != NULL)
+	{
+		if (!h->str)
+		{
+			printf("[0] (nil)\n");
+		}
+		else
+		{
+			printf("[%d] %s\n", h->len, h->str);
+		}
+
+		i++;
+		h = h->next;
+	}
+
+	return (i);
+}
