@@ -1,8 +1,10 @@
 #include <stdio.h>
 
 /**
- * main - check the code
+ * premain - check the code
  *
+ * Description: A function that execute
+ * before the main function.
  * Return: Always 0.
  */
 
