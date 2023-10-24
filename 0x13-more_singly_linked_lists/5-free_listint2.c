@@ -12,10 +12,9 @@ void free_listint2(listint_t **head)
 {
 	listint_t *tmp = NULL;
 
-	if (!(*head))
+	if (!(head))
 	{
-		*head = NULL;
-		exit(0);
+		return;i
 	}
 
 
