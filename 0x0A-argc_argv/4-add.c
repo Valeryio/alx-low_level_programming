@@ -12,13 +12,17 @@
  */
 
 
-int main(__attribute__((unused)) int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	int i, sum = 0;
+	int i,  a = 0, sum = 0;
 
 	for (i = 1; i < argc; i++)
 	{
-		if (argv[i][0] < '0' || argv[i][0] > '9')
+		a = atoi(argv[i]);
+
+		printf("La variable : a [%d]\n", a);
+
+		if ((char)a < '0' || (char)a > '9')
 		{
 			printf("Error\n");
 			return (1);
