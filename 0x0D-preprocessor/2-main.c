@@ -6,7 +6,8 @@
  * Descripion: prints a file's name
  */
 
-void main(void)
+int main(void)
 {
-	printf("0%s\n", __BASE_FILE__);
+	printf("%s\n", __BASE_FILE__);
+	return(0);
 }
