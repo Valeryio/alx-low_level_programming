@@ -8,13 +8,16 @@
  *     */
 int main(void)
 {
-	    int n;
+	    unsigned long int n;
 
-	        n = get_bit(1, 10);
-		    printf("%d\n", n);
-		        n = get_bit(98, 1);
-			    printf("%d\n", n);
-			        n = get_bit(1024, 0);
-				    printf("%d\n", n);
-				        return (0);
+	        n = 1024;
+		    clear_bit(&n, 10);
+		        printf("%lu\n", n);
+			    n = 0;
+			        clear_bit(&n, 10);
+				    printf("%lu\n", n);
+				        n = 98;
+					    clear_bit(&n, 1);
+					        printf("%lu\n", n);
+						    return (0);
 }
