@@ -3,10 +3,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+
+int _putchar(char);
 
 int trOf(char);
 
 int expo(int, int);
+
+int divInt(int, int);
+
+int mod(int, int);
 
 unsigned int binary_to_uint(const char *);
 
