@@ -1,48 +1,6 @@
 #include "main.h"
 
 /**
- * divInt - make the division
- * @a: (int), te dividend
- * @b: (int), the divisor
- *
- * Description: This function makes
- * an Euler's division
- * Return: An integer
- */
-
-int divInt(int a, int b)
-{
-	int i;
-
-	for (i = 0; a >= b; i++)
-		a = a - b;
-
-	return (i);
-}
-
-
-/**
- * mod - make the modulo
- * @a: (int), the dividend
- * @b: (int), the divisor
- *
- * Description: This function makes
- * a modulo operation.
- * Return: An integer
- */
-
-int mod(int a, int b)
-{
-	int i;
-
-	for (i = 0; a >= b; i++)
-		a = a - b;
-
-	return (a);
-}
-
-
-/**
  * print_binary - print the binary representation
  * @n: (unsigned long int), the number to convert
  *
@@ -53,23 +11,40 @@ int mod(int a, int b)
 
 void print_binary(unsigned long int n)
 {
-	char str[64];
-	int i = 0;
+	int tmp = 0, mask, length = 0;
 
-	while (divInt(n, 2) > 0)
+
+	if (n == 0)
 	{
-		str[i] = (mod(n, 2) == 1) ? '1' : '0';
-		n = divInt(n, 2);
-		i++;
+		_putchar('0');
+		return;
 	}
 
-	str[i] = (mod(n, 2) == 1) ? '1' : '0';
 
-	str[i + 1] = '\0';
+	tmp = (int) n;
 
-	for (; i >= 0; i--)
+	while (tmp)
 	{
-		_putchar(str[i]);
+		length++;
+		tmp >>= 1;
 	}
 
+	tmp = n;
+	length--;
+
+	printf("La taille de ce qu'il faut : %d\n", length);
+
+	if (length)
+		mask = 1 << length;
+
+	while (tmp > 0)
+	{
+		if (tmp & mask)
+			_putchar('1');
+
+		if (!(tmp & mask))
+			_putchar('0');
+
+		tmp <<= 1;
+	}
 }
