@@ -1,5 +1,10 @@
-#ifndef MAIN_H /* You may change this (e.g. main.h becomes MAIN_H)*/
-#define MAIN_H /* You may change this (e.g. main.h becomes MAIN_H)*/
+#ifndef MAIN_H_INCLUDED /* You may change this (e.g. main.h becomes MAIN_H)*/
+#define MAIN_H_INCLUDED /* You may change this (e.g. main.h becomes MAIN_H)*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
 int _putchar(char c); /* For testing. Don't delete */
 int _islower(int c);
 int _isalpha(int c);
@@ -20,4 +25,5 @@ char *_strchr(char *s, char c);
 unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
+
 #endif
