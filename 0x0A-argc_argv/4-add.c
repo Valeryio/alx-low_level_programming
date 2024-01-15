@@ -25,7 +25,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 
 	for (; i < argc; i++)
 	{
-		if (!atoi(argv[i]) && argv[i] == "0")
+		if (!atoi(argv[i]))
 		{
 			printf("Error\n");
 			return (1);
