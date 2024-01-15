@@ -3,7 +3,7 @@
 
 /**
  * main - give back money
- * 
+ *
  * @argc: (int)
  * @argv: (object)
  *
@@ -13,7 +13,7 @@
 
 int main(__attribute__((unused)) int argc, char **argv)
 {
-	int i = 1, coins[] = { 25, 10, 5, 2, 1} , centimes = 0, money = 0;
+	int i = 1, coins[] = { 25, 10, 5, 2, 1}, centimes = 0, money = 0;
 
 	if (argc != 2)
 	{
@@ -35,7 +35,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 
 		if (!(money % coins[i]))
 			break;
-		
+
 		money %= coins[i];
 	}
 
