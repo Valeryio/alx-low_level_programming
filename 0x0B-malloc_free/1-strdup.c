@@ -6,7 +6,8 @@
  *
  * Description: This function reallocate
  * a new string.
- * Return : A pointer
+ *
+ * Return: A pointer
  */
 
 char *_strdup(char *str)
@@ -14,7 +15,7 @@ char *_strdup(char *str)
 	int size = strlen(str), i = 0;
 	char *newStr = NULL;
 
-	if (!str || NULL)
+	if (str == NULL)
 		return (NULL);
 
 	newStr = malloc(sizeof(char) * (size + 1));
