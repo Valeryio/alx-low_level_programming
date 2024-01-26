@@ -16,6 +16,7 @@
 int main(__attribute__((unused)) int argc, char **argv)
 {
 	int i = 1, sum = 0;
+	char *end;
 
 	if (argc < 2)
 	{
@@ -31,7 +32,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 			return (1);
 		}
 
-		sum += atoi(argv[i]);
+		sum += strtol(argv[i], &end, 2);
 	}
 
 	printf("%d\n", sum);
