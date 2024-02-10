@@ -21,7 +21,7 @@ int main(void)
     printf("%p\n", (void *)i);
     f = malloc_checked(sizeof(float) * 100000000);
     printf("%p\n", (void *)f);
-    d = malloc_checked(0);
+    d = malloc_checked(INT_MAX);
     printf("%p\n", (void *)d);
     free(c);
     free(i);

@@ -13,12 +13,10 @@ void *malloc_checked(unsigned int b)
 {
 	void *p = NULL;
 
-	printf("Voici B : %u\n", b);
-
 	if (b == 0)
 		exit(98);
 
-	p = malloc(b);
+	p = malloc((int) b);
 
 	if (!p)
 		exit(98);
