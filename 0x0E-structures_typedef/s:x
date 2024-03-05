@@ -1,0 +1,680 @@
+BETTY(2)                                          Betty man page                                          BETTY(2)
+
+NNAAMMEE
+       Betty - Holberton School coding style for C code
+
+SSYYNNOOPPSSIISS
+       bbeettttyy--ssttyyllee [OPTIONS] _f_i_l_e [file2 [file3 ...]]
+
+       bbeettttyy--ddoocc [OPTIONS] _f_i_l_e [file2 [file3 ...]]
+
+DDEESSCCRRIIPPTTIIOONN
+       This document describes the C coding style for Holberton School.
+       Coding style is very personal, and we won't force our views on anybody.
+       But we expect you to follow this coding style for all the projects related to Holberton School. The Holber‐
+       ton School coding style is mainly inspired from the Linux Kernel coding style, but it's slightly modified.
+       To avoid any confusion, please refer to this guide and not the official Linux Kernel coding style.
+
+11 -- CCOODDIINNGG SSTTYYLLEE
+       11..11 -- IInnddeennttaattiioonn
+
+              PPuurrppoossee
+              The whole idea behind indentation is to clearly define where a block of control starts and ends.
+              Especially when you've been looking at your screen for 20 straight hours, you'll find it a lot  eas‐
+              ier to see how the indentation works if you have large indentations.
+
+              TTaabbss
+              Use ttaabbss to indent your code. Tabs characters will be counted as 11 character by BBeettttyy.
+
+              The  preferred  way to ease multiple indentation levels in a sswwiittcchh statement is to align the sswwiittcchh
+              and its subordinate ccaassee labels in the same column instead of double-indenting the ccaassee labels.
+
+              EExxaammppllee
+                     int sample_func(char suffix)
+                     {
+                         int var;
+
+                         var = 0;
+                         switch (suffix)
+                         {
+                         case 'G':
+                         case 'g':
+                             var = 30;
+                             break;
+                         case 'M':
+                         case 'm':
+                             var = 20;
+                             break;
+                         case 'K':
+                         case 'k':
+                             var = 10;
+                         default:
+                             break;
+                         }
+                         return (var);
+                     }
+
+              Don't put multiple statements on a single line:
+
+                     if (condition) do_this;
+                     do_something_everytime;
+
+              Don't put multiple assignments on a single line either.
+              Betty coding style is super simple.
+
+              Outside of comments and documentation, ssppaacceess aarree nneevveerr uusseedd ffoorr iinnddeennttaattiioonn, and the above  example
+              is deliberately broken.
+              Get a decent editor and don't leave whitespace at the end of lines.
+
+       11..22 -- BBrreeaakkiinngg lloonngg lliinneess aanndd ssttrriinnggss
+
+              PPuurrppoossee
+              Coding style is all about readability and maintainability using commonly available tools.
+
+              The limit on the length of lines is 8800 ccoolluummnnss and this is a strongly preferred limit.
+
+              Statements  longer  than 80 columns will be broken into sensible chunks, unless exceeding 80 columns
+              significantly increases readability and does not hide information.
+              Descendants are always substantially shorter than the parent and are  placed  substantially  to  the
+              right. The same applies to function headers with a long argument list.
+
+       11..33 -- PPllaacciinngg BBrraacceess
+
+              The other issue that always comes up in C styling is the placement of braces.
+              Unlike  the  indent  size, there are few technical reasons to choose one placement strategy over the
+              other, but the preferred way, is to put both the opening and the closing braces first, thusly:
+
+                     if (x == 1)
+                     {
+                          some_code = here;
+                     }
+
+              This applies to almost all non-function statement blocks: iiff, sswwiittcchh, ffoorr, wwhhiillee.
+
+              EExxaammppllee
+                     switch (action)
+                     {
+                     case CASE_ADD:
+                          return ("add");
+                     case CASE_REMOVE:
+                          return ("remove");
+                     case CASE_CHANGE:
+                          return ("change");
+                     default:
+                          return (NULL);
+                     }
+
+              aanndd
+
+                     if (x == y)
+                     {
+                          ...
+                     }
+                     else if (x > y)
+                     {
+                          ...
+                     }
+                     else
+                     {
+                          ...
+                     }
+
+              EExxcceeppttiioonnss
+
+              Note that the closing brace is empty on a line of its own, eexxcceepptt in the cases where it is  followed
+              by a continuation of the same statement, i.e a wwhhiillee in a ddoo--ssttaatteemmeenntt, like this:
+
+                     do {
+                          body of do-loop
+                     } while (condition);
+
+              Do not unnecessarily use braces where a single statement will do.
+
+                     if (condition)
+                          action();
+
+              and
+
+                     if (condition)
+                          do_this();
+                     else
+                          do_that();
+
+              This does not apply if only one branch of a conditional statement is a single statement; in the lat‐
+              ter case use braces in both branches:
+
+                     if (condition)
+                     {
+                          do_this();
+                          do_that();
+                     }
+                     else
+                     {
+                          otherwise();
+                     }
+
+       11..44 -- PPllaacciinngg SSppaacceess
+
+              Betty coding style for use of spaces depends (mostly) on function-versus-keyword usage.
+              Use a space after (most) keywords.
+              The notable exceptions are ssiizzeeooff, ttyyppeeooff, aalliiggnnooff, and  ____aattttrriibbuuttee____,  which  look  somewhat  like
+              functions.
+
+              So use a space after these keywords:
+
+                     iiff, eellssee iiff, sswwiittcchh, ccaassee, ffoorr, wwhhiillee, rreettuurrnn
+
+              But not with:
+
+                     ssiizzeeooff, ttyyppeeooff, aalliiggnnooff, ____aattttrriibbuuttee____
+
+                     KKeeyywwoorrdd        SSppaaccee AAfftteerr    EExxaammppllee
+                     --------------------------------------------
+                     iiff             Yes            if (condition)
+                     eellssee iiff        Yes            else if (condition)
+                     sswwiittcchh         Yes            switch (variable)
+                     ccaassee           Yes            case value:
+                     ffoorr            Yes            for (i = 0; i < 10; ++i)
+                     wwhhiillee          Yes            while (condition)
+                     rreettuurrnn         Yes            return (1);
+                     ssiizzeeooff         No             sizeof(struct file)
+                     ttyyppeeooff         No             typeof(variable)
+                     aalliiggnnooff        No             alignof(variable)
+                     ____aattttrriibbuuttee____  No             __attribute__((unused))
+
+              Do not add spaces around (inside) parenthesized expressions.
+              This example is bbaadd:
+
+                     s = sizeof( struct file );
+
+              When declaring pointer data or a function that returns a pointer type, the preferred use of ** is ad‐
+              jacent to the data name or function name and not adjacent to the type name.
+
+              EExxaammppllee::
+                     char *str;
+                     unsigned int sample(char *ptr, char **retptr);
+                     char *match_strdup(substring_t *s);
+
+              Use one space around (on each side of) most binary and ternary operators, such as any of these:
+
+                     == ++ -- << >> ** // %% || && ^^ <<== >>== ==== !!== ?? ::
+
+              But no space after unary operators:
+
+                     && ** ++ -- ~~ !! ssiizzeeooff ttyyppeeooff aalliiggnnooff ____aattttrriibbuuttee____ ddeeffiinneedd
+
+              No space before the ppoossttffiixx increment & decrement unary operators:
+
+                     ++++ ----
+
+              EExxaammppllee::
+                     int i;
+
+                     i = 0;
+                     i++;
+                     i--;
+
+              No space after the pprreeffiixx increment & decrement unary operators:
+
+                     ++++ ----
+
+              EExxaammppllee::
+                     int i;
+
+                     i = 0;
+                     ++i;
+                     --i;
+
+              And no space around the .. and -->> structure member operators.
+
+              Do not leave trailing whitespace at the ends of lines.
+              Some editors with ssmmaarrtt indentation will insert whitespace at the beginning of new lines  as  appro‐
+              priate,  so you can start typing the next line of code right away. However, some such editors do not
+              remove the whitespace if you end up not putting a line of code there, such as if you leave  a  blank
+              line.
+              As a result, you end up with lines containing trailing whitespace.
+
+              Git  will  warn  you  about patches that introduce trailing whitespace, and can optionally strip the
+              trailing whitespace for you; however, if applying a series of patches, this may make  later  patches
+              in the series fail by changing their context lines.
+
+       11..55 -- NNaammiinngg
+
+              C  is  a  Spartan language, and so should your naming be.  Unlike Modula-2 and Pascal programmers, C
+              programmers do not use cute names like
+
+                     TThhiissVVaarriiaabblleeIIssAATTeemmppoorraarryyCCoouunntteerr
+
+              A C programmer would call that variable
+
+                     ttmmpp
+
+              which is easier to write, and easy to understand.
+
+              HHOOWWEEVVEERR, while mixed-case names are frowned upon, descriptive names for global variables are a must.
+              To call a global function ffoooo is a shooting offense.
+
+              GGLLOOBBAALL variables (to be used only if you rreeaallllyy need them) need to have  descriptive  names,  as  do
+              global  functions.   If  you have a function that counts the number of active users, you should call
+              that
+
+                     ccoouunntt__aaccttiivvee__uusseerrss(())
+
+              or similar, you should not call it
+
+                     ccnnttuussrr(())
+
+              Encoding the type of a function into the name (so-called Hungarian notation) is brain damaged -  the
+              compiler knows the types anyway and can check those, and it only confuses the programmer.
+
+              LLOOCCAALL variable names should be short, and to the point.
+              If  you  have  some  random  integer  loop  counter,  it  should  probably  be  called ii. Calling it
+              lloooopp__ccoouunntteerr is non-productive, if there is no chance of it being mis-understood.
+              Similarly, ttmmpp can be just about any type of variable that is used to hold a temporary value.
+
+              If you are afraid to mix up your local variable names, you have another problem, which is called the
+              function-growth-hormone-imbalance syndrome. See chapter _1_._6 _- _F_u_n_c_t_i_o_n_s.
+
+       11..66 -- FFuunnccttiioonnss
+
+              Functions should be short and sweet, and do just one thing.
+              They must fit on 4400 lliinneess, and do one thing and do that well.
+
+              The  maximum  length of a function is inversely proportional to the complexity and indentation level
+              of that function.
+              So, if you have a conceptually simple function that is just one long  (but  simple)  case-statement,
+              where  you  have  to  do lots of small things for a lot of different cases, it's OK to have a longer
+              function.
+
+              However, if you have a complex function, and you suspect that a  less-than-gifted  first-year  high-
+              school  student  might  not even understand what the function is all about, you should adhere to the
+              maximum limits all the more closely.
+              Use helper functions with descriptive names (you can ask the compiler to in-line them if  you  think
+              it's performance-critical, and it will probably do a better job of it than you would have done).
+
+              Another measure of the function is the number of local variables.
+              They shouldn't exceed 55--1100, or you're doing something wrong.
+              Re-think the function, and split it into smaller pieces.
+              A human brain can generally easily keep track of about 7 different things, anything more and it gets
+              confused.
+              You know you're brilliant, but maybe you'd like to understand what you did 2 weeks from now.
+
+              In source files, separate functions with one blank line.
+
+       11..77 -- CCoommmmeennttiinngg
+
+              Comments are good, but there is also a danger of over-commenting.
+              NNEEVVEERR ttrryy ttoo eexxppllaaiinn HHOOWW yyoouurr ccooddee wwoorrkkss in a comment: it's much better to write the  code  so  that
+              the working is obvious, and it's a waste of time to explain badly written code.
+
+              Generally,  you  want your comments ttoo tteellll WWHHAATT yyoouurr ccooddee ddooeess, nnoott HHOOWW. Also, try to avoid putting
+              comments inside a function body: if the function is so complex that you need to  separately  comment
+              parts of it, you should probably go back to chapter 6 for a while.
+              You  can  make small comments to note or warn about something particularly clever (or ugly), but try
+              to avoid excess.
+              Instead, put the comments at the head of the function, telling people what it does, and possibly WHY
+              it does it.
+
+              When commenting your functions, please use the _b_e_t_t_y_-_d_o_c_(_1_) format. See the Chapter about _D_o_c_u_m_e_n_t_a_‐
+              _t_i_o_n and the script _b_e_t_t_y_-_d_o_c_(_1_) from BBeettttyy for details.
+
+              BBeettttyy style for comments is the CC8899 ssttyyllee.
+
+                     /* Use this */
+
+              DDoonn''tt uussee CC9999--ssttyyllee ccoommmmeennttss
+
+                     // Don't use this
+
+              The preferred style for long (multi-line) comments is:
+
+                     /*
+                      * This is the preferred style for multi-line
+                      * comments in C source code.
+                      * Please use it consistently.
+                      *
+                      * Description:  A column of asterisks on the left side,
+                      * with beginning and ending almost-blank lines.
+                      */
+
+       11..88 -- MMaaccrrooss aanndd EEnnuummss
+
+              Names of mmaaccrrooss defining constants and labels in eennuummss are capitalized.
+
+                     #define CONSTANT 0x12345
+
+              and
+
+                     enum sample
+                     {
+                          FIRST = 1,
+                          SECOND,
+                          THIRD
+                     };
+
+              Enums are preferred when defining several related constants.
+
+              CAPITALIZED macro names are appreciated but macros resembling functions may be named in lower case.
+              Generally, inline functions are preferable to macros resembling functions.
+
+              Macros with multiple statements should be enclosed in a do - while block:
+
+                     #define macrofun(a, b, c) \
+                         do \
+                         { \
+                             if (a == 5) \
+                                 do_this(b, c); \
+                         } while (condition)
+
+              TThhiinnggss ttoo aavvooiidd wwhheenn uussiinngg mmaaccrrooss
+                     11)) MMaaccrrooss tthhaatt aaffffeecctt ccoonnttrrooll ffllooww::
+
+                                   #define FOO(x) \
+                                       do \
+                                       { \
+                                           if (bar(x) < 0) \
+                                               return (-1); \
+                                       } while (condition)
+
+                            This is a very bad idea.
+                            It looks like a function call but exits the ccaalllliinngg function; don't break the internal
+                            parsers of those who will read the code.
+
+                     22)) MMaaccrrooss tthhaatt ddeeppeenndd oonn hhaavviinngg aa llooccaall vvaarriiaabbllee wwiitthh aa mmaaggiicc nnaammee::
+
+                                   #define FOO(val) bar(index, val)
+
+                            might  look  like a good thing, but it's confusing as hell when one reads the code and
+                            it's prone to breakage from seemingly innocent changes.
+
+                     33)) FFoorrggeettttiinngg aabboouutt pprreecceeddeennccee:: mmaaccrrooss ddeeffiinniinngg ccoonnssttaannttss uussiinngg eexxpprreessssiioonnss mmuusstt eenn‐‐
+                     cclloossee tthhee eexxpprreessssiioonn iinn ppaarreenntthheesseess..
+
+                            Beware of similar issues with macros using parameters.
+
+                                   #define CONSTANT 0x4000
+                                   #define CONSTEXP (CONSTANT | 3)
+
+                     44)) NNaammeessppaaccee ccoolllliissiioonnss wwhheenn ddeeffiinniinngg llooccaall vvaarriiaabblleess iinn mmaaccrrooss rreesseemmbblliinngg ffuunnccttiioonnss::
+
+                                   #define FOO(x) \
+                                   ({ \
+                                       typeof(x) ret; \
+                                       ret = calc_ret(x); \
+                                       (ret); \
+                                   })
+
+                            rreett is a common name for a local variable. ____ffoooo__rreett is less likely to collide with an
+                            existing variable.
+
+       11..99 -- HHeeaaddeerr ffiilleess
+
+              FFuunnccttiioonn pprroottoottyyppeess
+
+              All your function prototypes must be declared in header files.
+
+                     /* this prototype has to be declared in a header file */
+                     void sample_func(int);
+
+              SSttrruuccttss,, EEnnuumm,, UUnniioonnss ddeeffiinniittiioonnss
+
+              All your structs, enums and union must be defined in header files.
+
+                     struct sample_struct
+                     {
+                          int val;
+                          char *str;
+                     };
+
+                     enum sample_enum
+                     {
+                          FIRST = 1,
+                          SECOND,
+                          THIRD
+                     };
+
+              and
+
+                     union color
+                     {
+                          unsigned int ui32_value;
+                          unsigned char[4] rgba;
+                     };
+
+              TTyyppeeddeeffss
+
+              All your typedefs must be defined in header files.
+
+                     typedef unsigned char uchar;
+
+                     typedef struct sample_struct
+                     {
+                          int value;
+                          char *str;
+                     } sample_struct;
+
+              DDoouubbllee iinncclluussiioonn
+
+              To prevent double inclusion, we expect you to protect your header files by defining a macro, only if
+              the header file hasn't been included yet.
+
+              Example for a file named _s_a_m_p_l_e___h_e_a_d_e_r_._h:
+
+                     #ifndef _SAMPLE_HEADER_H_
+                     #define _SAMPLE_HEADER_H_
+
+                     /*
+                      * Structs, enums and unions definitions
+                      * Typedefs
+                      * Function prototypes
+                      */
+
+                     #endif /* _SAMPLE_HEADER_H_ */
+
+22 -- DDOOCCUUMMEENNTTAATTIIOONN
+       22..11 -- FFuunnccttiioonnss
+
+              In order to keep your code maintainable and readable, you'll be asked to document every single func‐
+              tion in every single of your source files.
+
+              HHooww ttoo ddooccuummeenntt ffuunnccttiioonnss
+
+              To document a function, you simply need to insert a comment block above it. Instead of a  regular  C
+              multiline comment, the comment block must begin with the following line:
+
+                     /**
+
+              with two stars.
+              Then, each line of the block must start with a star, followed by a space:
+
+                      *
+
+              The block must end exactly like a C multiline comment, with a multiline comment closer:
+
+                      */
+
+              FFoorrmmaatt ooff tthhee ddooccuummeennttaattiioonn bblloocckk
+
+              In the following description:
+
+                     - ((......))?? signifies optional structure.
+                     - ((......))** signifies 0 or more structure elements
+
+              The format of a documentation block is the following one:
+
+                     /**
+                      * function_name - Short description, single line
+                      * @parameterx: Description of parameter x
+                     (* a blank line
+                      * Description: Longer description of the function)?
+                     (* section header: Section description)*
+                      * Return: Description of the returned value
+                      */
+
+              So the trivial example would be:
+
+                     /**
+                      * my_function - This is a description
+                      */
+                     void my_function(void)
+                     {
+                          do_something();
+                     }
+
+              If the function must returns a value (anything but vvooiidd), the RReettuurrnn:: header tag is mandatory:
+
+                     /**
+                      * print_hello - Prints "Hello"
+                      */
+                     void print_hello(void)
+                     {
+                          printf("Hello");
+                     }
+
+                     /**
+                      * is_positive - Check if a number is greater than 0
+                      * @nb: The number to be checked
+                      *
+                      * Return: 1 if the number is positive. 0 otherwise
+                      */
+                     int is_positive(int nb)
+                     {
+                          return (nb > 0);
+                     }
+
+              If  there is one or more parameter described, then there must be a blank line after their specifica‐
+              tion (Only if there is something to describe after the parameters):
+
+                     /**
+                      * op_add - Makes the sum of two numbers
+                      * @arg1: First operand
+                      * @arg2: Second operand
+                      *
+                      * Return: The sum of the two parameters
+                      */
+                     int op_add(int arg1, int arg2)
+                     {
+                          return (arg1 + arg2);
+                     }
+
+                     /**
+                      * print_arg - Prints a string using printf
+                      * @arg: The string to be printed
+                      */
+                     void print_arg(char *arg)
+                     {
+                          print_string(arg);
+                     }
+
+              Example for the DDeessccrriippttiioonn header (longer description):
+
+                     /**
+                      * op_add - Makes the sum of two numbers
+                      * @arg1: First operand
+                      * @arg2: Second operand
+                      *
+                      * Description: This is a longer description.
+                      * Don't forget that a line should not exceed 80 characters.
+                      * But you're totally free to use several lines to properly
+                      * describe your function
+                      * Return: The sum of the two parameters
+                      */
+                     int op_add(int arg1, int arg2)
+                     {
+                          return (arg1 + arg2);
+                     }
+
+              You can also add additional sections. For example, you can add a section EExxaammppllee on  which  you  can
+              give an example of usage when it's relevant.
+              EExxaammppllee::
+
+                     /**
+                      * op_add - Makes the sum of two numbers
+                      * @arg1: First operand
+                      * @arg2: Second operand
+                      *
+                      * Example:
+                      *    op_add(90, 8); --> 98
+                      */
+                     int op_add(int arg1, int arg2)
+                     {
+                          return (arg1 + arg2);
+                     }
+
+       22..22 -- DDaattaa SSttrruuccttuurreess
+
+              Besides functions you can also write documentation for ssttrruuccttss, uunniioonnss, eennuummss and ttyyppeeddeeffss.
+              Instead of the function name you must write the name of the declaration;
+              the  ssttrruucctt/uunniioonn/eennuumm/ttyyppeeddeeff must always precede the name. Nesting of declarations is not support‐
+              ed.
+              Use the argument mechanism to document members or constants.
+              EExxaammppllee::
+
+                     /**
+                      * struct my_struct - Short description
+                      * @a: First member
+                      * @b: Second member
+                      * @c: Third member
+                      *
+                      * Description: Longer description
+                      */
+                     struct my_struct
+                     {
+                          int a;
+                          int b;
+                          int c;
+                     };
+
+              For really longs structs, you can also describe arguments inside the body of the struct.
+              EExxaammppllee::
+
+                     /**
+                      * struct my_struct - Short description
+                      * @a: First member
+                      * @b: Second member
+                      *
+                      * Description: Longer description
+                      */
+                     struct my_struct
+                     {
+                          int a;
+                          int b;
+                          /**
+                           * @c: This is longer description of C
+                           *
+                           * Description: You can use paragraphs to describe arguments
+                           * using this method.
+                           */
+                          int c;
+                     };
+
+              This should be use only for ssttrruucctt/eennuumm members.
+
+              EExxaammppllee ffoorr aa ttyyppddeeff::
+
+                     /**
+                      * u_int - Typedef for unsigned int
+                      */
+                     typedef unsigned int u_int;
+
+              Of course, you're free to add the DDeessccrriippttiioonn header on any documentation block.
+
+SSEEEE AALLSSOO
+       _b_e_t_t_y_-_s_t_y_l_e_(_1_), _b_e_t_t_y_-_d_o_c_(_1_)
+
+RREEFFEERREENNCCEESS
+       The Holberton School coding style is mainly inspired from the LLiinnuuxx KKeerrnneell ccooddiinngg ssttyyllee, but it's  slightly
+       modified.
+       See _h_t_t_p_:_/_/_g_i_t_._k_e_r_n_e_l_._o_r_g_/_c_g_i_t_/_l_i_n_u_x_/_k_e_r_n_e_l_/_g_i_t_/_t_o_r_v_a_l_d_s_/_l_i_n_u_x_._g_i_t_/_p_l_a_i_n_/_D_o_c_u_m_e_n_t_a_t_i_o_n_/_C_o_d_i_n_g_S_t_y_l_e for more
+       details
+       See the section RReeffeerreenncceess of the LLiinnuuxx KKeerrnneell ccooddiinngg ssttyyllee for more sources and references.
+
+       For more informations, please visit _h_t_t_p_s_:_/_/_g_i_t_h_u_b_._c_o_m_/_h_o_l_b_e_r_t_o_n_s_c_h_o_o_l_/_B_e_t_t_y
+
+BBUUGGSS
+       Please visit _h_t_t_p_s_:_/_/_g_i_t_h_u_b_._c_o_m_/_h_o_l_b_e_r_t_o_n_s_c_h_o_o_l_/_B_e_t_t_y_/_i_s_s_u_e_s
+
+AAUUTTHHOORR
+       Alexandre GAUTIER, Copyright 2016 Holberton Inc.
+
+1.0                                                October 2016                                           BETTY(2)
