@@ -1,6 +1,5 @@
 #include "function_pointers.h"
 
-
 /**
  * int_index - find an index
  * @array: (object)
