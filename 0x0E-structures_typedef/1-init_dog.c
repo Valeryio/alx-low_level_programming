@@ -14,7 +14,10 @@
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	if (!d)
+	{
 		printf("Ok\n");
+		return;
+	}
 
 	if (!name || !owner)
 		exit(EXIT_FAILURE);
