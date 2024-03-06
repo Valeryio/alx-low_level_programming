@@ -1,0 +1,35 @@
+#include "dog.h"
+
+/**
+ * new_dog - creates a new dog
+ * @name: (string), the name of the dog
+ * @age: (float), the age of the dog
+ * @owner: (string), the name of the owner
+ *
+ * Description: This function creates an new
+ * dog
+ * Return: A pointer on SUCCESS, and NULL
+ * otherwise
+ */
+
+dog_t *new_dog(char *name, float age, char *owner)
+{
+	dog_t *puppy = NULL;
+
+	puppy = malloc(sizeof(dog_t));
+
+	if (!puppy)
+		return (NULL);
+
+	puppy->name = malloc(sizeof(char) * strlen(name));
+	puppy->owner = malloc(sizeof(char) * strlen(owner));
+
+	if (!puppy->name || !puppy->owner)
+		return (NULL);
+
+	strcpy(puppy->name, name);
+	strcpy(puppy->owner, owner);
+	puppy->age = age;
+
+	return (puppy);
+}
