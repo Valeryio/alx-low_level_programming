@@ -11,6 +11,7 @@
  */
 
 
+char verifyOperator(char s);
 
 int main(int argc, char *argv[])
 {
@@ -26,6 +27,7 @@ int main(int argc, char *argv[])
 	}
 
 	/* Verifying if the operator is in the list*/
+	/* if (verifyOperator(argv[2][0]) == ' ')*/
 	if ((argv[2][0] != '+') && (argv[2][0] != '-') && (argv[2][0] != '*') && (argv[2][0] != '/') && (argv[2][0] != '%'))
 		exit(99);
 	
@@ -41,4 +43,29 @@ int main(int argc, char *argv[])
 	printf("%d\n", result);
 
 	return (1);
+}
+
+
+/**
+ * verifyOperators - verify operators
+ * @s: (char), the operator
+ *
+ * Description: This function verify if the
+ * operator given is in the list of given
+ * operators
+ * Return: 1 on SUCCESS, 0 otherwise
+ */
+
+char verifyOperator(char s)
+{
+	char operators[] = "+-*/%";
+	int i = 0;
+
+	while (operators[i] != '\0')
+	{
+		if (operators[i] == s)
+			return (s);
+		i++;
+	}
+	return ' ';
 }
