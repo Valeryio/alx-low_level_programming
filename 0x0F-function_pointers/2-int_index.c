@@ -1,5 +1,5 @@
 #include "function_pointers.h"
-
+#include <stdlib.h>
 /**
  * int_index - find an index
  * @array: (object)
@@ -16,7 +16,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 	int i = 0;
 	
 	if (!array || !cmp)
-		exit();
+		exit(0);
 
 	if (size <= 0)
 		return (-1);
