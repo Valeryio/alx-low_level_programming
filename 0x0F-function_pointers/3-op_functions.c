@@ -49,7 +49,7 @@ int op_mul(int a, int b)
  * @a: (int)
  * @b: (int)
  *
- * Description: Make a division 
+ * Description: Make a division
  * Return: A number
  */
 
@@ -65,7 +65,7 @@ int op_div(int a, int b)
  * @a: (int)
  * @b: (int)
  *
- * Description: Make a modulo 
+ * Description: Make a modulo
  * Return: A number
  */
 

@@ -14,11 +14,9 @@
 
 int main(int argc, char *argv[])
 {
-	int a = 0, b = 0, result = 0/*, i = 0 , allowed = 0*/;
+	int a = 0, b = 0, result = 0;
 
-	/* Verifying if we have the good number of
-	   arguments
-	*/
+	/* Verifying if we have the good number of arguments */
 	if (argc < 4)
 	{
 		printf("Error\n");
