@@ -15,7 +15,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	int index = 0;
 	hash_node_t *new_node = NULL;
-	printf("Here\n");
 /*Verifications to know if ht is a empty DS*/
 	if (!ht)
 		return (0);
@@ -30,13 +29,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 /*Creates new node to add in the hash table*/
 	new_node = createNode((const char *)key, (const char *)value);
 
-	printf("Pres a ajouter la nodde \n");
-	printf("L'index : %d \n", index);
 /*Add the new node at the right place if there is no collision*/
 	if (ht->array[index] == NULL)
 	{
 		ht->array[index] = new_node;
-		printf("ON peut continuer la node est ajoute\n");
 	}
 	else
 	{
@@ -58,7 +54,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 int appendNode(hash_node_t **node, hash_node_t **list)
 {
-	hash_node_t *tmpnode = NULL, *current = NULL;
+	hash_node_t *tmpnode = NULL;
 	int i = 0;
 	tmpnode = (*list);
 	
@@ -69,15 +65,6 @@ int appendNode(hash_node_t **node, hash_node_t **list)
 
 /*Append to the lastt element of the list*/
 	tmpnode->next = (*node);
-	
-
-    current = (*list);
-
-    for (i = 0; i < 2 ; i++)
-    {	
-	    printf("| %s : %s  |\n", current->key, current->value);
-      current = current->next;
-    }
 
 	return (1);
 }
