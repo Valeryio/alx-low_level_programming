@@ -55,7 +55,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 int appendNode(hash_node_t **node, hash_node_t **list)
 {
 	hash_node_t *tmpnode = NULL;
-	int i = 0;
 	tmpnode = (*list);
 	
 	printf("Pour append\n");
