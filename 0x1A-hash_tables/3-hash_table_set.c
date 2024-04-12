@@ -15,7 +15,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	int index = 0;
 	hash_node_t *new_node = NULL;
-
+	printf("Here\n");
 /*Verifications to know if ht is a empty DS*/
 	if (!ht)
 		return (0);
@@ -25,15 +25,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 /*Determine the index to use for the value to put in the hash table*/
-	index = key_index(key, ht->size);
+	index = key_index((const unsigned char *)key, ht->size);
 
 /*Creates new node to add in the hash table*/
-	new_node = createNode(key, value);
+	new_node = createNode((const char *)key, (const char *)value);
 
+	printf("Pres a ajouter la nodde \n");
+	printf("L'index : %d \n", index);
 /*Add the new node at the right place if there is no collision*/
 	if (ht->array[index] == NULL)
 	{
 		ht->array[index] = new_node;
+		printf("ON peut continuer la node est ajoute\n");
 	}
 	else
 	{
@@ -41,6 +44,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		appendNode(&(ht->array[index]), &new_node);
 	}
 
+	return (index);
 }
 
 /**
@@ -57,7 +61,8 @@ int appendNode(hash_node_t **node, hash_node_t **list)
 	hash_node_t *tmpnode = NULL;
 
 	tmpnode = (*list);
-
+	
+	printf("Pour append\n");
 /*Browse the list to get the end*/
 	while (tmpnode->next != NULL)
 		tmpnode = tmpnode->next;
@@ -77,7 +82,7 @@ int appendNode(hash_node_t **node, hash_node_t **list)
  * Return: A pointer
  */
 
-hash_node_t *createNode(const unsigned char *key, const unsigned char *value)
+hash_node_t *createNode(const char *key, const char *value)
 {
 	hash_node_t *new_node = NULL;
 
@@ -86,9 +91,10 @@ hash_node_t *createNode(const unsigned char *key, const unsigned char *value)
 	if (!new_node)
 		return (NULL);
 
+	printf("Here\n");
 /*Allocating space for key and value strings*/
-	new_node->key = malloc(strlen(key) + 1);
-	new_node->value = malloc(strlen(value) + 1);
+	new_node->key = malloc(strlen((char *)key) + 1);
+	new_node->value = malloc(strlen((char *)value) + 1);
 	new_node->next = NULL;
 
 	if (!(new_node->key) || !(new_node->value))
@@ -99,8 +105,9 @@ hash_node_t *createNode(const unsigned char *key, const unsigned char *value)
 		return (NULL);
 	}
 /*Copying the right content to the node arguments*/
-	strcpy(new_node->key, key);
-	strcpy(new_node->value, value);
+	strcpy(new_node->key,(char *) key);
+	strcpy(new_node->value, (char *) value);
 
+	printf("Je retourne la node\n");
 	return (new_node);
 }

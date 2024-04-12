@@ -42,7 +42,7 @@ unsigned long int key_index(const unsigned char *key, unsigned long int size);
 int appendNode(hash_node_t **, hash_node_t **);
 unsigned int getHashTableLength(hash_node_t **);
 
-hash_node_t *createNode(const unsigned char *key, const unsigned char *value);
+hash_node_t *createNode(const char *key, const char *value);
 
 
 #endif
