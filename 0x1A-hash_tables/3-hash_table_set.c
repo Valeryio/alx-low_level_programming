@@ -58,8 +58,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 int appendNode(hash_node_t **node, hash_node_t **list)
 {
-	hash_node_t *tmpnode = NULL;
-
+	hash_node_t *tmpnode = NULL, *current = NULL;
+	int i = 0;
 	tmpnode = (*list);
 	
 	printf("Pour append\n");
@@ -69,6 +69,16 @@ int appendNode(hash_node_t **node, hash_node_t **list)
 
 /*Append to the lastt element of the list*/
 	tmpnode->next = (*node);
+	
+
+    current = (*list);
+
+    for (i = 0; i < 2 ; i++)
+    {	
+	    printf("| %s : %s  |\n", current->key, current->value);
+      current = current->next;
+    }
+
 	return (1);
 }
 
