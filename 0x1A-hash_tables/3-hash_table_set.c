@@ -57,7 +57,6 @@ int appendNode(hash_node_t **node, hash_node_t **list)
 	hash_node_t *tmpnode = NULL;
 	tmpnode = (*list);
 	
-	printf("Pour append\n");
 /*Browse the list to get the end*/
 	while (tmpnode->next != NULL)
 		tmpnode = tmpnode->next;
@@ -87,7 +86,6 @@ hash_node_t *createNode(const char *key, const char *value)
 	if (!new_node)
 		return (NULL);
 
-	printf("Here\n");
 /*Allocating space for key and value strings*/
 	new_node->key = malloc(strlen((char *)key) + 1);
 	new_node->value = malloc(strlen((char *)value) + 1);
@@ -104,6 +102,5 @@ hash_node_t *createNode(const char *key, const char *value)
 	strcpy(new_node->key,(char *) key);
 	strcpy(new_node->value, (char *) value);
 
-	printf("Je retourne la node\n");
 	return (new_node);
 }
