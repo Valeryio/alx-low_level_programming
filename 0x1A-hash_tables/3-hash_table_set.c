@@ -37,7 +37,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	else
 	{
 /*Handle collisions*/
-		appendNode(&(ht->array[index]), &new_node);
+		appendNode(&new_node, &(ht->array[index]));
 	}
 
 	return (1);
@@ -60,7 +60,6 @@ int appendNode(hash_node_t **node, hash_node_t **list)
 /*Browse the list to get the end*/
 	while (tmpnode->next != NULL)
 		tmpnode = tmpnode->next;
-
 /*Append to the lastt element of the list*/
 	tmpnode->next = (*node);
 
