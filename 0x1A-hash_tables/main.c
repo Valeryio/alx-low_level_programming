@@ -1,45 +1,44 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "hash_tables.h"
 
+void _hash_table_print(const hash_table_t *ht)
+{
+	unsigned long int i;
+	hash_node_t *p;
+	char n;
+
+	for (i = 0; ht && i < ht->size; i++)
+	{
+		p = ht->array[i];
+		printf("[%lu]", i);
+		n = 0;
+		while (p)
+		{
+			if (n)
+				printf(", ");
+			printf("'%s': '%s'", p->key, p->value);
+			p = p-> next;
+			n = 1;
+		}
+		printf("\n");
+	}
+}
+
 /**
- * main - check the code
+ * main - check the code for Holberton School students.
  *
  * Return: Always EXIT_SUCCESS.
  */
 int main(void)
 {
-    hash_table_t *ht = NULL;
-    int i = 0;
-    hash_node_t *tmpnode = NULL;
+	hash_table_t *ht;
+	int ret;
 
-    ht = hash_table_create(1024);
-    hash_table_set(ht, "hetairas", "cool");
-    hash_table_set(ht, "mentioner", "yes I");
-
-    for (;i < 280; i++)
-    {
-	    if (ht->array[i] != NULL)
-	    {
-
-		    if (ht->array[i]->next != NULL)
-		    {
-			    tmpnode = ht->array[i];
-			    while (tmpnode)
-			    {
-				printf("| %s : %s  |\n", tmpnode->key, tmpnode->value);
-				tmpnode = tmpnode->next;
-			    }
-			continue;
-		    }
-		    printf("I[%d]", i);
-		    printf("Arg 1: %s\n", ht->array[i]->key);
-		    printf("Arg 2: %s\n\n", ht->array[i]->value);
-
-	    }
-	    else
-	    {
-		    printf(" I[%d] : NULL\n", i);
-	    }
-    }
-
-    return (EXIT_SUCCESS);
+	ht = hash_table_create(1024);
+	ret = hash_table_set(ht, "C", "is fun");
+	printf("%d\n", ret);
+	_hash_table_print(ht);
+	return (EXIT_SUCCESS);
 }
