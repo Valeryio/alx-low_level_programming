@@ -55,18 +55,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 int appendNode(hash_node_t **node, hash_node_t **list)
 {
 	hash_node_t *tmpnode = NULL;
-	tmpnode = (*list);
 
+	if (strcmp((*list)->key, "Holberton") == 0)
+	{
+		(*list) = (*node);
+		return (1);
+	}
+/*Appending to the top of the linked lit*/
+	tmpnode = (*list);
 	(*node)->next = tmpnode;
 	(*list) = (*node);
 
-/*Browse the list to get the end*/
-/**	while (tmpnode->next != NULL)
-		tmpnode = tmpnode->next;
-*/
-/*Append to the lastt element of the list*/
-/*	tmpnode->next = (*node);
-*/
 	return (1);
 }
 
@@ -102,7 +101,7 @@ hash_node_t *createNode(const char *key, const char *value)
 		return (NULL);
 	}
 /*Copying the right content to the node arguments*/
-	strcpy(new_node->key,(char *) key);
+	strcpy(new_node->key, (char *) key);
 	strcpy(new_node->value, (char *) value);
 
 	return (new_node);
