@@ -13,7 +13,7 @@
 
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	hash_node_t **tmpnode = NULL;
+	hash_node_t **tmpnode = NULL, *node = NULL;
 	int i = 0, result = 1;
 
 /*Checking that the hash_table is not empty*/
@@ -36,7 +36,17 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 
 		result = strcmp(tmpnode[i]->key, (char *)key);
 		if (result == 0)
+		{
+			if (tmpnode[i]->next != NULL)
+			{
+				node = tmpnode[i];
+				while(node->next)
+					node = node->next;
+				return (node->value);
+			}
+
 			return (tmpnode[i]->value);
+		}
 		i++;
 	}
 
