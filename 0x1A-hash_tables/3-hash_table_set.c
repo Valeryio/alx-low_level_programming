@@ -56,13 +56,17 @@ int appendNode(hash_node_t **node, hash_node_t **list)
 {
 	hash_node_t *tmpnode = NULL;
 	tmpnode = (*list);
-	
-/*Browse the list to get the end*/
-	while (tmpnode->next != NULL)
-		tmpnode = tmpnode->next;
-/*Append to the lastt element of the list*/
-	tmpnode->next = (*node);
 
+	(*node)->next = tmpnode;
+	(*list) = (*node);
+
+/*Browse the list to get the end*/
+/**	while (tmpnode->next != NULL)
+		tmpnode = tmpnode->next;
+*/
+/*Append to the lastt element of the list*/
+/*	tmpnode->next = (*node);
+*/
 	return (1);
 }
 
