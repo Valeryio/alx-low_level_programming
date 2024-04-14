@@ -40,7 +40,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 			if (tmpnode[i]->next != NULL)
 			{
 				node = tmpnode[i];
-				while(node->next)
+				while (node->next)
 					node = node->next;
 				return (node->value);
 			}
