@@ -30,5 +30,5 @@ void hash_table_print(const hash_table_t *ht)
 		if (non_empty != 0 && (ht->array[i + 1] != NULL))
 			printf(",");
 	}
-	printf("}");
+	printf("}\n");
 }

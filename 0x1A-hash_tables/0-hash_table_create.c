@@ -23,7 +23,8 @@ hash_table_t *hash_table_create(unsigned long int size)
 /*Setting the table size*/
 	table->size = size;
 /*Initialising the hash nodes array, dynamically*/
-	table->array = (hash_node_t **) malloc(sizeof(hash_node_t *) * size);
+/*	table->array = (hash_node_t **) malloc(sizeof(hash_node_t *) * size);*/
+	table->array = malloc(sizeof(hash_node_t *) * size);
 
 	while (i < size)
 	{
