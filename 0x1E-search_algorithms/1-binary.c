@@ -61,7 +61,7 @@ void print_array(int start, int end, int *array)
 		printf("The array is empty");
 
 
-	printf("Searching in the array:");
+	printf("Searching in array:");
 	for (i = start; i < end; i++)
 	{
 		printf(" %d", array[i]);
